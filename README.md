@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [See the code on GitHub]()
-- Live Site URL: [View live site]()
+- Solution URL: [See the code on GitHub](https://github.com/KristinaRadosavljevic/four-card-feature-section)
+- Live Site URL: [View live site](https://four-card-feature-section-tau-gules.vercel.app/)
 
 ## My process
 
@@ -38,12 +38,21 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS/Sass
+- CSS grid
+- Flexbox
+- Animations
 
 ### What I learned
 
+This was a somewhat interesting challenge, which gave me the opportunity to really practice CSS grid (particularly the `grid-template-areas` property) in the context of media queries. I also started looking into animations a bit.
+
 ### Continued development
 
+I would like to expand the use and complexity of animations in the future projects as it seems like a pretty useful and flexible tool.
+
 ### Useful resources
+
+In this project, I decided to dig a bit deeper into the issue of centering content using the grid, and [this YouTube video](https://www.youtube.com/watch?v=vNwoDkn7AIc&ab_channel=KevinPowell) in particular helped me fugure out the difference between `place-items` and `place-content`.
 
 ## Author
 
