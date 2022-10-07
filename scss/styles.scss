@@ -10,11 +10,20 @@ $grayish-blue: hsl(229, 6%, 66%);
 $very-light-gray: hsl(0, 0%, 98%);
 
 // Mixins
-@mixin card($area, $color) {
+@mixin card($area, $color, $delay: 0s) {
   grid-area: $area;
 
   &::before {
     background-color: $color;
+    animation-delay: $delay;
+  }
+}
+
+// Animation
+@keyframes roll-to-right {
+  to {
+    left: 0;
+    width: 100%;
   }
 }
 
@@ -104,14 +113,17 @@ main {
         display: block;
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        left: 50%;
+        width: 0;
         height: 0.3rem;
+        animation-name: roll-to-right;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
       }
 
       //   Styling the individual cards
       &.supervisor {
-        @include card(supervisor, $cyan);
+        @include card(supervisor, $cyan, 0.2s);
       }
 
       &.team-builder {
@@ -119,12 +131,21 @@ main {
       }
 
       &.karma {
-        @include card(karma, $orange);
+        @include card(karma, $orange, 0.4s);
       }
 
       &.calculator {
-        @include card(calculator, $blue);
+        @include card(calculator, $blue, 0.2s);
       }
     }
+  }
+}
+
+// Remove animations for users that prefer not to see them
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
   }
 }

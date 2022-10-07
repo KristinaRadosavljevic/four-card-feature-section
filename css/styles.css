@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+@keyframes roll-to-right {
+  to {
+    left: 0;
+    width: 100%; } }
+
 *,
 *::before,
 *::after {
@@ -63,22 +68,35 @@ main {
         display: block;
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 0.3rem; }
+        left: 50%;
+        width: 0;
+        height: 0.3rem;
+        animation-name: roll-to-right;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards; }
       main .container article.supervisor {
         grid-area: supervisor; }
         main .container article.supervisor::before {
-          background-color: #45d3d3; }
+          background-color: #45d3d3;
+          animation-delay: 0.2s; }
       main .container article.team-builder {
         grid-area: team-builder; }
         main .container article.team-builder::before {
-          background-color: #ea5353; }
+          background-color: #ea5353;
+          animation-delay: 0s; }
       main .container article.karma {
         grid-area: karma; }
         main .container article.karma::before {
-          background-color: #fcaf4a; }
+          background-color: #fcaf4a;
+          animation-delay: 0.4s; }
       main .container article.calculator {
         grid-area: calculator; }
         main .container article.calculator::before {
-          background-color: #549ef2; }
+          background-color: #549ef2;
+          animation-delay: 0.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important; } }
