@@ -1,0 +1,22 @@
+{
+  "name": "four-card-feature-section",
+  "version": "1.0.0",
+  "description": "Four card feature section",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KristinaRadosavljevic/four-card-feature-section.git"
+  },
+  "author": "Kristina Radosavljevic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KristinaRadosavljevic/four-card-feature-section/issues"
+  },
+  "homepage": "https://github.com/KristinaRadosavljevic/four-card-feature-section#readme",
+  "dependencies": {
+    "node-sass": "^7.0.3"
+  }
+}
