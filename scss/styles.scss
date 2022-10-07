@@ -9,6 +9,15 @@ $very-dark-blue: hsl(234, 12%, 34%);
 $grayish-blue: hsl(229, 6%, 66%);
 $very-light-gray: hsl(0, 0%, 98%);
 
+// Mixins
+@mixin card($area, $color) {
+  grid-area: $area;
+
+  &::before {
+    background-color: $color;
+  }
+}
+
 // Global resets
 *,
 *::before,
@@ -21,4 +30,101 @@ $very-light-gray: hsl(0, 0%, 98%);
 body {
   font-size: 0.94rem;
   font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: $grayish-blue;
+  background-color: $very-light-gray;
+  min-height: 100vh;
+  padding: 2rem;
+  display: grid;
+  place-content: center;
+}
+
+main {
+  max-width: 75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-size: 2.4rem;
+    font-weight: 200;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: $very-dark-blue;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    max-width: 35rem;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      ". team-builder ."
+      "supervisor team-builder calculator"
+      "supervisor karma calculator"
+      ". karma .";
+    gap: 2rem;
+
+    article {
+      background-color: hsl(0, 0%, 100%);
+      box-shadow: 0 0.5rem 1rem hsla(234, 12%, 34%, 0.2);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      padding: 2rem;
+      position: relative;
+
+      h2 {
+        font-size: 1.4rem;
+        color: $very-dark-blue;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin-bottom: 2.5rem;
+      }
+
+      img {
+        display: block;
+        margin-left: auto;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0.3rem;
+      }
+
+      //   Styling the individual cards
+      &.supervisor {
+        @include card(supervisor, $cyan);
+      }
+
+      &.team-builder {
+        @include card(team-builder, $red);
+      }
+
+      &.karma {
+        @include card(karma, $orange);
+      }
+
+      &.calculator {
+        @include card(calculator, $blue);
+      }
+    }
+  }
 }
